@@ -724,6 +724,27 @@ class ET(Inverter):
     async def set_grid_export_limit(self, export_limit: int) -> None:
         if export_limit >= 0:
             await self.write_setting('grid_export_limit', export_limit)
+    
+    async def get_charge_max_power_delta(self) -> int:
+        return await self.read_setting('charge_max_power_delta')
+    
+    async def set_charge_max_power_delta(self, charge_max_power_delta: int) -> None:
+        if charge_max_power_delta >= 0:
+            await self.write_setting('charge_max_power_delta', charge_max_power_delta)
+
+    async def get_discharge_max_power_delta(self) -> int:
+        return await self.read_setting('discharge_max_power_delta')
+    
+    async def set_discharge_max_power_delta(self, discharge_max_power_delta: int) -> None:
+        if discharge_max_power_delta >= 0:
+            await self.write_setting('discharge_max_power_delta', discharge_max_power_delta)
+
+    async def get_discharge_duration(self) -> int:
+        return await self.read_setting('discharge_duration')
+    
+    async def set_discharge_duration(self, discharge_duration: int) -> None:
+        if discharge_duration >= 0:
+            await self.write_setting('discharge_duration', discharge_duration)
 
     async def get_operation_modes(self, include_emulated: bool) -> tuple[OperationMode, ...]:
         result = list(OperationMode)
@@ -808,6 +829,13 @@ class ET(Inverter):
     async def set_ongrid_battery_dod(self, dod: int) -> None:
         if 0 <= dod <= 100:
             await self.write_setting('battery_discharge_depth', 100 - dod)
+
+    async def get_min_discharge_soc(self) -> int:
+        return 100 - await self.read_setting('min_discharge_soc')
+    
+    async def set_min_discharge_soc(self, min_discharge_soc: int) -> None:
+        if 0 <= min_discharge_soc <= 100:
+            await self.write_setting('min_discharge_soc', 100 - min_discharge_soc)
 
     def _get_sensor(self, sensor_id: str) -> Sensor | None:
         if self._sensors_map is None:
