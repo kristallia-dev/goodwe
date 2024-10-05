@@ -344,6 +344,8 @@ class ET(Inverter):
         Long("modbus_baud_rate", 45132, "Modbus Baud rate", ""),
         Timestamp("time", 45200, "Inverter time"),
 
+        Integer("restart", 45220, "Restart"),
+
         Integer("sensitivity_check", 45246, "Sensitivity Check Mode", "", Kind.AC),
         Integer("cold_start", 45248, "Cold Start", "", Kind.AC),
         Integer("shadow_scan", 45251, "Shadow Scan", "", Kind.PV),
@@ -363,8 +365,15 @@ class ET(Inverter):
 
         Decimal("power_factor", 45482, 100, "Power Factor"),
 
+        Integer("min_discharge_soc", 45558, "Min Discharge SoC", "%", Kind.BAT),
+        Integer("discharge_duration", 45560, "Discharge Duration", "sec", Kind.BAT),
+        Integer("discharge_max_power_delta", 45561, "Discharge Max Power Delta", "W", Kind.BAT),
+        Integer("charge_max_power_delta", 45563, "Charge Max Power Delta", "W", Kind.BAT),
+
         Integer("work_mode", 47000, "Work Mode", "", Kind.AC),
         Integer("dred", 47010, "DRED/Remote Shutdown", "", Kind.AC),
+
+        Integer("wifi_modbus_tcp_enable", 47040, "WiFi Modbus TCP Enable"),
 
         Integer("meter_target_power_offset", 47120, "Meter Target Power Offset", "W", Kind.AC),
 
@@ -385,6 +394,9 @@ class ET(Inverter):
         ByteH("eco_mode_3_switch", 47526, "Eco Mode Group 3 Switch"),
         EcoModeV1("eco_mode_4", 47527, "Eco Mode Group 4"),
         ByteH("eco_mode_4_switch", 47530, "Eco Mode Group 4 Switch"),
+
+        Integer("wifi_reset", 47539, "WiFi Reset"),
+        Integer("wifi_reload", 47541, "WiFi Reload"),
 
         # Direct BMS communication for EMS Control
         Integer("bms_version", 47900, "BMS Version"),

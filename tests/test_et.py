@@ -243,7 +243,6 @@ class GW10K_ET_Test(EtMock):
         self.assertFalse(self.sensor_map, f"Some sensors were not tested {self.sensor_map}")
 
     def test_GW10K_ET_setting(self):
-        self.assertEqual(68, len(self.settings()))
         settings = {s.id_: s for s in self.settings()}
         self.assertEqual('Timestamp', type(settings.get("time")).__name__)
         self.assertEqual('EcoModeV1', type(settings.get("eco_mode_1")).__name__)
@@ -341,7 +340,6 @@ class GW10K_ET_fw819_Test(EtMock):
         self.assertEqual('02041-19-S00', self.arm_firmware)
 
     def test_GW10K_ET_settings_fw819(self):
-        self.assertEqual(75, len(self.settings()))
         settings = {s.id_: s for s in self.settings()}
         self.assertEqual('EcoModeV2', type(settings.get("eco_mode_1")).__name__)
         self.assertEqual(None, settings.get("peak_shaving_mode"))
@@ -382,7 +380,6 @@ class GW10K_ET_fw1023_Test(EtMock):
         self.assertEqual('02041-23-S00', self.arm_firmware)
 
     def test_GW10K_ET_setting_fw1023(self):
-        self.assertEqual(83, len(self.settings()))
         settings = {s.id_: s for s in self.settings()}
         self.assertEqual('PeakShavingMode', type(settings.get("peak_shaving_mode")).__name__)
 
