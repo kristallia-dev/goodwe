@@ -264,6 +264,78 @@ class Inverter(ABC):
         0% - 89%
         """
         raise NotImplementedError()
+    
+    async def get_charge_max_power_delta(self) -> int:
+        """
+        BEWARE !!!
+        This method modifies On-Grid Battery DoD parameter accessible to installers only.
+        Use with caution and at your own risk !
+
+        Get Max Charge Power Delta in W
+        0 - 4600
+        """
+
+        raise NotImplementedError()
+    
+    async def set_charge_max_power_delta(self, charge_max_power_delta: int) -> None:
+        """
+        BEWARE !!!
+        This method modifies On-Grid Battery DoD parameter accessible to installers only.
+        Use with caution and at your own risk !
+
+        Set Max Charge Power Delta in W
+        0 - 4600
+        """
+
+        raise NotImplementedError()
+    
+    async def get_discharge_max_power_delta(self) -> int:
+        """
+        BEWARE !!!
+        This method modifies On-Grid Battery DoD parameter accessible to installers only.
+        Use with caution and at your own risk !
+
+        Get Max Discharge Power Delta in W
+        0 - 4600
+        """
+
+        raise NotImplementedError()
+    
+    async def set_discharge_max_power_delta(self, discharge_max_power_delta: int) -> None:
+        """
+        BEWARE !!!
+        This method modifies On-Grid Battery DoD parameter accessible to installers only.
+        Use with caution and at your own risk !
+
+        Set Max Discharge Power Delta in W
+        0 - 4600
+        """
+
+        raise NotImplementedError()
+    
+    async def get_discharge_duration(self) -> int:
+        """
+        BEWARE !!!
+        This method modifies On-Grid Battery DoD parameter accessible to installers only.
+        Use with caution and at your own risk !
+
+        Get Discharge Duration in seconds
+        0 - 65535
+        """
+
+        raise NotImplementedError()
+    
+    async def set_discharge_duration(self) -> int:
+        """
+        BEWARE !!!
+        This method modifies On-Grid Battery DoD parameter accessible to installers only.
+        Use with caution and at your own risk !
+
+        Set Discharge Duration in seconds
+        0 - 65535
+        """
+
+        raise NotImplementedError()
 
     @abstractmethod
     def sensors(self) -> tuple[Sensor, ...]:
