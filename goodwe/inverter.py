@@ -265,6 +265,7 @@ class Inverter(ABC):
         """
         raise NotImplementedError()
     
+    @abstractmethod
     async def get_charge_max_power_delta(self) -> int:
         """
         BEWARE !!!
@@ -277,6 +278,7 @@ class Inverter(ABC):
 
         raise NotImplementedError()
     
+    @abstractmethod
     async def set_charge_max_power_delta(self, charge_max_power_delta: int) -> None:
         """
         BEWARE !!!
@@ -289,6 +291,7 @@ class Inverter(ABC):
 
         raise NotImplementedError()
     
+    @abstractmethod
     async def get_discharge_max_power_delta(self) -> int:
         """
         BEWARE !!!
@@ -301,6 +304,7 @@ class Inverter(ABC):
 
         raise NotImplementedError()
     
+    @abstractmethod
     async def set_discharge_max_power_delta(self, discharge_max_power_delta: int) -> None:
         """
         BEWARE !!!
@@ -313,6 +317,7 @@ class Inverter(ABC):
 
         raise NotImplementedError()
     
+    @abstractmethod
     async def get_discharge_duration(self) -> int:
         """
         BEWARE !!!
@@ -325,6 +330,7 @@ class Inverter(ABC):
 
         raise NotImplementedError()
     
+    @abstractmethod
     async def set_discharge_duration(self) -> int:
         """
         BEWARE !!!
